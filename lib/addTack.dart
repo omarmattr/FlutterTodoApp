@@ -28,6 +28,7 @@ class _AddTackState extends State<AddTack> {
                   taskName = val;
                 },
                 decoration: InputDecoration(
+
                   labelText: "Task name",
                   fillColor: Colors.white70,
                   labelStyle: TextStyle(color: Colors.red),
