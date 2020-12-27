@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tabpar/DB.dart';
+import 'package:flutter_tabpar/ProviderViewModel.dart';
 import 'package:flutter_tabpar/TabPar.dart';
-import 'package:flutter_tabpar/TaskModel.dart';
-import 'package:flutter_tabpar/updateData.dart';
+import 'package:provider/provider.dart';
 
 void main()async{
 WidgetsFlutterBinding.ensureInitialized();
-await update();
+//wait update();
 // await MyDatabase.myDatabase.getAllTask().then((value) => value.forEach((element) {
 //
 //    list.add(TaskModel.fromMap(element));
@@ -19,7 +18,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: TabPar());
+    return  ChangeNotifierProvider<ProviderViewModel>(
+        create: (context){
+      return ProviderViewModel();
+    },
+    child:MaterialApp(home:TabPar())
+    ,);
   }
 }
 

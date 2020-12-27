@@ -53,7 +53,7 @@ class MyDatabase {
     var db=await initDb();
     return db.query(tableName,where: "$columnTaskValueName=?",whereArgs: [_value]);
   }
-  updateTask(TaskModel taskModel)async{
+  Future updateTask(TaskModel taskModel)async{
     var db=await initDb();
     db.update(tableName, TaskModel.toMap(taskModel),where: "$columnIdName=${taskModel.id}");
   }
